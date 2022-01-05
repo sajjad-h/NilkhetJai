@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+</head>
+
+<body>
+    <form style="text-align: center;" th:action="@{addBook}" method="post">
+        <div>
+            <label>Book Name</label>
+            <input type="text" name="name">
+        </div>
+
+        <br />
+
+        <div>
+            <label>Writer Name</label>
+            <input type="text" name="writterName">
+        </div>
+
+        <br />
+        <div>
+            <label>Language</label>
+            <input type="text" name="language">
+        </div>
+
+        <br />
+
+        <div>
+            <label>Type</label>
+            <input type="text" name="type">
+        </div>
+        <br />
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+</body>
+
+</html>
