@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,15 @@ public class Books {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Long id;
+
+    private String type;
+    private String name;
+    private String writeName;
+    private String language;
+    private String fileType;
+
+    @Lob
+    private String fileData;
 
     public Books() {
         super();
@@ -25,6 +35,22 @@ public class Books {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileData(String fileData) {
+        this.fileData = fileData;
+    }
+
+    public String getFilefileData() {
+        return fileData;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     public String getName() {
@@ -50,11 +76,6 @@ public class Books {
     public void setLanguage(String language) {
         this.language = language;
     }
-
-    private String type;
-    private String name;
-    private String writeName;
-    private String language;
 
     public Long getId() {
         return id;
