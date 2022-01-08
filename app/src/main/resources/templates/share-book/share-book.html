@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Book</title>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <form th:action="@{shareBook}" method="post">
+            <div>
+                <label>Enter id</label>
+                <input type="text" name="id">
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+
+        <br />
+
+        <div>
+            <div th:text="${message}"></div>
+        </div>
+        <br />
+
+        <div th:if="${id}">
+            <div>
+                <a th:href="'https://www.facebook.com/sharer/sharer.php?u=' + ${appUrl}+'&t=Hello'"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                    target="_blank" title="Share on Facebook">Share book on facebook
+                </a>
+            </div>
+            <br />
+            <div>
+                <a target="_blank" th:href="${appUrl}">View book</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
