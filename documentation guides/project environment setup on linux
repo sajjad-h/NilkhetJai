@@ -1,0 +1,175 @@
+project environment setup on linux
+**********************************
+Java setup:
+***********
+Installing the Default JRE/JDK
+-----------------------------
+$ sudo apt update
+$ java -version
+If Java is not currently installed, you’ll see the following output:
+Output
+    Command 'java' not found, but can be installed with:
+
+Install jre
+-------------
+Execute the following command to install the default Java Runtime Environment (JRE, which will install the JRE from OpenJDK 11:
+
+$ sudo apt install default-jre
+ 
+The JRE will allow you to run almost all Java software.
+
+Verify the installation with:
+
+$ java -version
+ 
+You’ll see output similar to the following:
+
+Output
+    openjdk version "11.0.11" 2021-04-20
+    OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
+    OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sharing))
+
+
+
+
+install jdk
+-----------
+You need the Java Development Kit (JDK) in addition to the JRE in order to compile and run some specific Java-based software. To install the JDK, execute the following command, which will also install the JRE:
+
+$ sudo apt install default-jdk
+ 
+Verify that the JDK is installed by checking the version of javac, the Java compiler:
+
+$ javac -version
+ 
+You’ll see the following output:
+
+Output
+    javac 11.0.11
+
+
+-------x----------
+
+
+
+
+*************
+Setup git:
+*************
+
+Install git:
+***********
+From your shell, install Git using apt-get:
+
+$ sudo apt-get update
+
+$ sudo apt-get install git
+
+Verify the installation was successful by typing git --version:
+
+$ git --version
+Output-> git version 2.9.2
+
+
+SSH key gen & git clone:
+************************
+If you have no gloabal user or email-
+$ git config --global user.name "your name"
+$ git config --global user.email "your email"
+
+To generate key
+$ ssh-keygen -t rsa -C "your email"
+then just hit enter, it will save default location.
+
+copy the public key in gerrit profile under settings in gerrit web interface:
+$ cat /home/<local-user>/.ssh/id_rsa.pub
+
+Pase it to github.
+Then clone from git hub.
+
+For our project, you have to use command 
+$ git clone git@github.com:sajjad-h/NilkhetJai.git
+
+
+
+
+-------------------x-----------------------
+
+
+**********
+xamp setup:
+***********
+
+Step 1:
+---------------
+Download xamp nstallation Package from their official website for linux os.
+website link: https://www.apachefriends.org/download.html
+
+Step 2:
+----------------
+Make Installation Package Executable
+1. Move into the folder where your installation package is located. By default, the system stores it in the Downloads folder. Navigate to Downloads using the command:
+
+$ cd /home/[username]/Downloads
+2. Now make the file executable by running a chmod command:
+
+$ sudo chmod 755 [package_name]
+
+If you navigate to the Downloads folder, you can find the complete package name. You need to copy and paste the name into the command above.
+It should like
+$ sudo chmod 755 xampp-linux-x64-7.3.5.1-installer.run
+
+3. The terminal does not give any confirmation nor output that you have successfully performed the previous step. However, verify you have executed the permission with the command:
+
+$ ls –l xampp-linux-x64-7.3.5.1-installer.run
+
+The output should include rwxr –xr –x 1 followed by the name of the user who can now execute the file.
+
+Step 3:
+-------------------
+Launch Setup Wizard
+1. Now, you can run the installer and launch the graphical setup wizard with the following command:
+
+$ sudo ./[package_name]
+
+In this example, the command is:
+
+$ sudo ./xampp-linux-x64-7.3.5.1-installer.run
+
+Then you have to follow GUI & perform next stapes. 
+xampp will be default installed to /otp/lampp
+
+Step 4:
+---------
+For next time run xamp app, you have to go to /otp/lampp
+$ /otp/lampp
+
+$ sudo ./manager-linux-x64.run
+
+
+Step 5:
+------------
+After run xampp server, you have to go manage servers & start theme.
+
+if apache web server is not run, you have to check if apache is already running. You have to stop it.
+$ systemctl stop apache2.service 
+Then try to start apache web server again.
+
+
+Step 6:
+-----------
+Uninstall XAMPP
+1. To uninstall XAMPP, return to the terminal and navigate to the opt/lampp directory with the command:
+
+cd /opt/lampp
+
+2. Once you are in the appropriate directory, you can uninstall XAMPP by typing the following command:
+
+sudo ./uninstall
+3. The command will prompt a dialogue box asking you whether you want to uninstall XAMPP and all of its modules. Confirm by clicking Yes.
+
+4. Finally, remove the specified directory with:
+
+sudo rm –r /opt/lamp
+
+
