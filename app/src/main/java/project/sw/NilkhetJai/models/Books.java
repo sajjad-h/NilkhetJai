@@ -21,12 +21,30 @@ public class Books {
     private String writeName;
     private String language;
     private String fileType;
+    private int numberOfBooks;
+    private Boolean isAvailable;
 
     @Lob
     private String fileData;
 
     public Books() {
         super();
+    }
+
+    public boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+
+    public int getNumberOfBooks() {
+        return numberOfBooks;
+    }
+
+    public void setNumberOfBooks(int numberOfBooks) {
+        this.numberOfBooks = numberOfBooks;
     }
 
     public String getType() {

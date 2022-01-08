@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import project.sw.NilkhetJai.models.Books;
 
 public interface BooksRepository extends CrudRepository<Books, Long> {
-    Optional<Books> findById(String id);
+    Optional<Books> findById(Long id);
 }
