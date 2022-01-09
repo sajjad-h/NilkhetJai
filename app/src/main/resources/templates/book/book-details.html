@@ -20,12 +20,16 @@
     </head>
 
     <body>
-        <div style="text-align: center;">
+        <div th:replace="fragments/header :: header"></div>
+
+        <div style="text-align: center;" class="h3">
             <div th:text="${bookName}"></div><br />
             <div th:text="${writerName}"></div><br />
             <div th:text="${language}"></div><br />
             <div th:text="${available}"></div><br />
         </div>
+        <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 
     </body>
 

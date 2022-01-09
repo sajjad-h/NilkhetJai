@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <div style="text-align: center;">
+    <div th:replace="fragments/header :: header"></div>
+
+    <div style="text-align: center;" class="mt-5">
         <form th:action="@{/registration}" method="post">
             <div>
                 <label>Email</label>
@@ -20,10 +22,12 @@
                 <input type="text" name="password">
             </div><br />
             <div>
-                <input type="submit" value="Registration">
+                <input class="btn btn-primary" type="submit" value="Registration">
             </div>
         </form>
     </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

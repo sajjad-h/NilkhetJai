@@ -9,9 +9,13 @@
 </head>
 
 <body>
-    <div>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="h2 m-3 text-center">
         Book added successfully
     </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

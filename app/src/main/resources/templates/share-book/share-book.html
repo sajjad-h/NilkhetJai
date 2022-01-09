@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div th:replace="fragments/header :: header"></div>
+
     <div style="text-align: center;">
         <form th:action="@{shareBook}" method="post">
             <div>
@@ -17,7 +19,7 @@
             </div>
             <br />
             <div>
-                <input type="submit" value="Submit">
+                <input class="btn btn-primary" type="submit" value="Submit">
             </div>
         </form>
 
@@ -30,18 +32,20 @@
 
         <div th:if="${id}">
             <div>
-                <a th:href="'https://www.facebook.com/sharer/sharer.php?u=' + ${appUrl}+'&t=Hello'"
+                <a class="btn btn-info" th:href="'https://www.facebook.com/sharer/sharer.php?u=' + ${appUrl}+'&t=Hello'"
                     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                     target="_blank" title="Share on Facebook">Share book on facebook
                 </a>
             </div>
             <br />
             <div>
-                <a target="_blank" th:href="${appUrl}">View book</a>
+                <a class="btn btn-primary" target="_blank" th:href="${appUrl}">View book</a>
             </div>
         </div>
 
     </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

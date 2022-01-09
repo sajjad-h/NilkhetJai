@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div th:replace="fragments/header :: header"></div>
+
     <form style="text-align: center;" th:action="@{addBook}" method="post" enctype="multipart/form-data">
         <div>
             <label>Book Cover Photo</label>
@@ -48,9 +50,11 @@
         <br />
 
         <div>
-            <input type="submit">
+            <input class="btn btn-primary" type="submit">
         </div>
     </form>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

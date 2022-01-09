@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +10,10 @@
 </head>
 
 <body>
+    <div th:replace="fragments/header :: header"></div>
+
     <div style="text-align: center;">
-        <form th:action="@{/login}" method="post">
+        <form th:action="@{/login}" method="post" class="mt-5">
             <div>
                 <label>Enter email</label>
                 <input type="text" id="username" name="username">
@@ -22,14 +25,18 @@
             </div>
             <br />
             <div>
-                <input type="submit" value="Login">
+                <input class="btn btn-primary" type="submit" value="Login">
             </div>
         </form>
+
         <br />
         <div>
-            <a th:href="@{/registration}">Registration</a>
+            <a class="btn btn-primary" th:href="@{/registration}">Registration</a>
         </div>
     </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

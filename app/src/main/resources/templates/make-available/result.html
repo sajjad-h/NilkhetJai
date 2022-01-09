@@ -9,9 +9,14 @@
 </head>
 
 <body>
+    <div th:replace="fragments/header :: header"></div>
+
     <div style="text-align: center;">
         <div th:text="${message}"></div>
     </div>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div th:replace="fragments/header :: header"></div>
+
     <div>
         <form style="text-align: center;" th:action="@{makeAvailable}" method="post">
             <div>
@@ -21,6 +23,8 @@
             </div>
         </form>
     </div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>

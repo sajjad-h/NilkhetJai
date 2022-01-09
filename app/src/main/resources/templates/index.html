@@ -1,22 +1,27 @@
 <html>
 
 <body style="text-align: center;">
+	<div th:replace="fragments/header :: header"></div>
+
 	<h1>Welcome to Nilkhet Jai Project</h1>
+	<br />
 	<div>
-		<a th:href="@{/addBook}">Add Book</a>
+		<a class="btn btn-primary" th:href="@{/addBook}">Add Book</a>
 	</div>
 	<br />
 	<div>
-		<a th:href="@{/makeAvailable}">Make Available</a>
+		<a class="btn btn-primary" th:href="@{/makeAvailable}">Make Available</a>
 	</div>
 	<br />
 	<div>
-		<a th:href="@{/shareBook}">Share Book</a>
+		<a class="btn btn-primary" th:href="@{/shareBook}">Share Book</a>
 	</div>
 	<br />
 	<div>
-		<a th:href="@{/logout}">Logout</a>
+		<a class="btn btn-danger" th:href="@{/logout}">Logout</a>
 	</div>
+	<div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
 </body>
 
 </html>
