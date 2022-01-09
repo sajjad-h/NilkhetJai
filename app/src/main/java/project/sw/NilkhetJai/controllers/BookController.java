@@ -62,8 +62,6 @@ public class BookController {
         books.setFileType(multipartFile.getContentType());
         books.setFileData(encodedFileData);
         booksService.save(books);
-        System.out.println("Book added " + books.getFileType() + " " +
-                encodedFileData);
 
         return "book/success";
     }
@@ -77,8 +75,6 @@ public class BookController {
     public String makeAvailablePost(@RequestParam(name = "id", required = true, defaultValue = "") String id,
             Model model) {
         Optional<Books> books = booksService.findById(Long.parseLong(id));
-        System.out.println(books.get().getName());
-
         if (books.get().getIsAvailable()) {
             model.addAttribute("message", "Your book is available, please order this book");
         } else {
@@ -98,7 +94,6 @@ public class BookController {
     public String shareBookPost(@RequestParam(name = "id", required = true, defaultValue = "") String id,
             Model model) {
         Optional<Books> books = booksService.findById(Long.parseLong(id));
-        System.out.println(books.get().getName());
         model.addAttribute("id", id);
         model.addAttribute("appUrl", appURL + "/bookDetails/" + id);
         return "share-book/share-book";
@@ -107,7 +102,6 @@ public class BookController {
     @GetMapping("bookDetails/{id}")
     public String bookDetailsGet(@PathVariable Long id, Model model) {
         Optional<Books> books = booksService.findById(id);
-        System.out.println(books.get().getName());
         model.addAttribute("bookName", "Book's Name: " + books.get().getName());
         model.addAttribute("writerName", "Writer's Name: " + books.get().getWriteName());
         model.addAttribute("language", "Language: " + books.get().getLanguage());
