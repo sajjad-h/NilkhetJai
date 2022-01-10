@@ -64,7 +64,6 @@ public class BookController {
 
         byte[] bytes = multipartFile.getBytes();
         String encodedFileData = Base64.getEncoder().encodeToString(bytes);
-
         books.setFileType(multipartFile.getContentType());
         books.setFileData(encodedFileData);
         bookService.save(books);
