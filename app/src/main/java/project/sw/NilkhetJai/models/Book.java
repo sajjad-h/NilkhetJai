@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "books")
-public class Books {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
@@ -18,7 +18,7 @@ public class Books {
 
     private String type;
     private String name;
-    private String writeName;
+    private String author;
     private String language;
     private String fileType;
     private int numberOfBooks;
@@ -27,7 +27,7 @@ public class Books {
     @Lob
     private String fileData;
 
-    public Books() {
+    public Book() {
         super();
     }
 
@@ -79,12 +79,12 @@ public class Books {
         this.name = name;
     }
 
-    public String getWriteName() {
-        return writeName;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWriteName(String writeName) {
-        this.writeName = writeName;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getLanguage() {

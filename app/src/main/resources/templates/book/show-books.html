@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Books</title>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <table class="table" border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="book,iterationStatus : ${books}">
+            <tr>
+                <td th:text=${iterationStatus.count}></td>
+                <td th:text=${book.name}></td>
+                <td th:text=${book.author}></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>
