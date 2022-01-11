@@ -2,14 +2,11 @@ package project.sw.NilkhetJai.controllers;
 
 import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import project.sw.NilkhetJai.models.User;
 import project.sw.NilkhetJai.service.UserService;
@@ -20,7 +17,11 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
+    /**
+     * index function return the landing page of Nilkhet jai project.
+     * 
+     * @return
+     */
     public String index(Model model) {
         Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
         Long userId = Long.parseLong(loggedInUser.getName());
@@ -32,11 +33,6 @@ public class HomeController {
         System.out.println(user.getFirstName());
 
         return "index";
-    }
-
-    @GetMapping("/home")
-    public String home() {
-        return "home/index";
     }
 
 }

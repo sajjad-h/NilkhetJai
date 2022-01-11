@@ -6,10 +6,27 @@ import java.util.Optional;
 import project.sw.NilkhetJai.models.Book;
 
 public interface BookService {
-    void save(Book books);
+    /**
+     * To save book object in book table
+     * 
+     * @param book
+     */
+    void save(Book book);
+
+    /**
+     * To find by id form book table
+     * 
+     * @param id
+     * @return
+     */
 
     Optional<Book> findById(Long id);
 
+    /**
+     * To find all object from book table
+     * 
+     * @return
+     */
     List<Book> findAll();
 
 }

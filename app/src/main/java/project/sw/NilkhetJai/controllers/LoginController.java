@@ -7,7 +7,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,43 +29,50 @@ public class LoginController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    /**
+     * viewUserLoginPage Get Mapping controller funtion returns User login page
+     * 
+     * @param userId
+     * @param model
+     * @return
+     */
+
     @GetMapping("/login")
-    public String viewUserLoginPage(
-            @RequestParam(name = "user_id", required = false, defaultValue = "-1") Long userId,
-            @RequestParam(name = "secret_code", required = false, defaultValue = "") String secretLoginCode,
-            @RequestParam(name = "back_url", required = false, defaultValue = "") String backURL,
-            Model model, Authentication authentication, HttpServletRequest request) {
-
-        if (backURL.length() > 0) {
-            request.getSession().setAttribute("backurlbutton", backURL);
-        }
-        if (authentication != null && authentication.isAuthenticated()) {
-            model.addAttribute("notification", "You are already logged in");
-            return "redirect:/";
-        }
-        if (secretLoginCode.length() > 0) {
-            Optional<User> userOptional = userService.findById(userId);
-            if (!userOptional.isPresent()) {
-                model.addAttribute("description", "Wrong user id!");
-                return "error";
-            }
-            return "redirect:/";
-        }
+    public String viewUserLoginPage(@RequestParam(name = "user_id", required = false, defaultValue = "-1") Long userId,
+            Model model) {
         return "login/login";
-
     }
 
+    /**
+     * userLogin Post Mapping controller funtion.
+     * 
+     * @param userLoginForm
+     * @param bindingResult
+     * @param model
+     * @return
+     */
+
     @PostMapping("/login")
-    public String userLogin(@Valid UserLoginForm userLoginForm, BindingResult bindingResult,
-            Model model) {
+    public String userLogin(@Valid UserLoginForm userLoginForm, BindingResult bindingResult, Model model) {
         model.addAttribute("notification", "Successfully logged in");
         return "redirect:/";
     }
 
+    /**
+     * viewUserRegistrationPage is Get Mapping controller funtion for registration
+     * funtion
+     * 
+     * @param username
+     * @param user
+     * @param model
+     * @param authentication
+     * @param request
+     * @return
+     */
+
     @GetMapping("/registration")
     public String viewUserRegistrationPage(
-            @RequestParam(name = "username", required = false, defaultValue = "") String username,
-            User user,
+            @RequestParam(name = "username", required = false, defaultValue = "") String username, User user,
             Model model, Authentication authentication, HttpServletRequest request) {
         if (authentication != null && authentication.isAuthenticated()) {
             model.addAttribute("notification", "You are already logged in");
@@ -78,16 +84,27 @@ public class LoginController {
         return "registration/registration";
     }
 
+    /**
+     * registerUser is Post Mapping controller funtion for registration
+     * 
+     * @param email
+     * @param password
+     * @param confirmPassword
+     * @param firstName
+     * @param lastName
+     * @param model
+     * @param redirectAttributes
+     * @return
+     */
+
     @PostMapping("/registration")
-    public String registerUser(
-            @RequestParam(name = "email", required = false, defaultValue = "") String email,
+    public String registerUser(@RequestParam(name = "email", required = false, defaultValue = "") String email,
             @RequestParam(name = "password", required = true, defaultValue = "") String password,
             @RequestParam(name = "confirmPassword", required = true, defaultValue = "") String confirmPassword,
             @RequestParam(name = "firstName", required = true, defaultValue = "") String firstName,
             @RequestParam(name = "lastName", required = true, defaultValue = "") String lastName,
 
-            Model model,
-            RedirectAttributes redirectAttributes) {
+            Model model, RedirectAttributes redirectAttributes) {
         email = email.trim();
 
         Optional<User> userOptional = userService.findByEmail(email);

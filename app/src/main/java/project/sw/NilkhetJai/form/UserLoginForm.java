@@ -13,17 +13,40 @@ public class UserLoginForm {
     @Size(min = 8, max = 40)
     private String password;
 
+    /**
+     * For getting email from user
+     * 
+     * @return
+     */
+
     public String getEmail() {
         return email;
     }
 
+    /**
+     * To set email for user
+     * 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * To get password from user
+     * 
+     * @return
+     */
+
     public String getPassword() {
         return password;
     }
+
+    /**
+     * To set password for user
+     * 
+     * @param password
+     */
 
     public void setPassword(String password) {
         this.password = password;
