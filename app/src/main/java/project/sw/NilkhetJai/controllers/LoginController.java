@@ -62,9 +62,6 @@ public class LoginController {
                 model.addAttribute("description", "Wrong user id!");
                 return "error";
             }
-            User user = userOptional.get();
-            LocalDateTime requestedDateTime = LocalDateTime.now();
-            // loginManually(user);
             return "redirect:/";
         }
         return "login/login";
@@ -74,16 +71,6 @@ public class LoginController {
     @PostMapping("/login")
     public String userLogin(@Valid UserLoginForm userLoginForm, BindingResult bindingResult,
             Model model) {
-
-        // User existing =
-        // userService.findByEmail(userLoginForm.getEmail().trim()).get();
-        // if (existing == null) {
-        // bindingResult.rejectValue("email", null, "Invalid email or password");
-        // System.out.println("Invalid email or password");
-        // return "login/login";
-        // }
-        // System.out.println("Successfully logged in");
-
         model.addAttribute("notification", "Successfully logged in");
         return "redirect:/";
     }
@@ -103,45 +90,48 @@ public class LoginController {
         return "registration/registration";
     }
 
-    @Transactional
     @PostMapping("/registration")
     public String registerUser(
             @RequestParam(name = "email", required = false, defaultValue = "") String email,
             @RequestParam(name = "password", required = true, defaultValue = "") String password,
+            @RequestParam(name = "confirmPassword", required = true, defaultValue = "") String confirmPassword,
+            @RequestParam(name = "firstName", required = true, defaultValue = "") String firstName,
+            @RequestParam(name = "lastName", required = true, defaultValue = "") String lastName,
+
             Model model,
-            RedirectAttributes redirectAttributes)
-            throws InvalidKeyException, InvalidKeySpecException, NoSuchAlgorithmException, NoSuchPaddingException,
-            InvalidAlgorithmParameterException, BadPaddingException, IllegalBlockSizeException {
-        // clears leading or trailing spaces
+            RedirectAttributes redirectAttributes) {
         email = email.trim();
 
+        Optional<User> userOptional = userService.findByEmail(email);
+        if (userOptional.isPresent()) {
+            redirectAttributes.addFlashAttribute("emailError", "This email is already registered!");
+            redirectAttributes.addFlashAttribute("firstName", firstName);
+            redirectAttributes.addFlashAttribute("lastName", lastName);
+            redirectAttributes.addFlashAttribute("email", email);
+
+            return "redirect:/registration";
+        }
+
+        if (!confirmPassword.equals(password)) {
+            redirectAttributes.addFlashAttribute("confirmPasswordError",
+                    "Password and confirm password does not matched!");
+            redirectAttributes.addFlashAttribute("firstName", firstName);
+            redirectAttributes.addFlashAttribute("lastName", lastName);
+            redirectAttributes.addFlashAttribute("email", email);
+
+            return "redirect:/registration";
+        }
+
         User user = new User();
-        // user.setFirstName(firstName);
-        // user.setLastName(lastName);
+
         user.setPassword(bCryptPasswordEncoder.encode(password));
         user.setEmail(email);
 
-        User registeredUser = userService.save(user);
+        userService.save(user);
 
         redirectAttributes.addFlashAttribute("notification", "Successfully registered!");
 
-        // loginManually(registeredUser);
-
         return "redirect:/";
-    }
-
-    // private void loginManually(User user) {
-    // Authentication authentication = new UsernamePasswordAuthenticationToken(
-    // userDetailsService
-    // .loadUserByUsername(phoneContactService.findByUserAndIsLogin(user,
-    // true).get().getNumber()),
-    // null, AuthorityUtils.createAuthorityList(UserRole.USER.toString()));
-    // SecurityContextHolder.getContext().setAuthentication(authentication);
-    // }
-
-    @GetMapping("/results")
-    public String results() {
-        return "results";
     }
 
 }
