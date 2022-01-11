@@ -1,15 +1,7 @@
 package project.sw.NilkhetJai.controllers;
 
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -18,7 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,9 +26,6 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -126,6 +114,8 @@ public class LoginController {
 
         user.setPassword(bCryptPasswordEncoder.encode(password));
         user.setEmail(email);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
 
         userService.save(user);
 

@@ -4,6 +4,8 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<h1>Welcome to Nilkhet Jai Project</h1>
+	<h1 th:text="${name}" class="text-info"></h1>
+
 	<br />
 	<div>
 		<a class="btn btn-primary" th:href="@{/addBook}">Add Book</a>
