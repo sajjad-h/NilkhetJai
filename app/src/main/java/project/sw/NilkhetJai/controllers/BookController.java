@@ -101,7 +101,7 @@ public class BookController {
         Optional<Book> book = bookService.findById(Long.parseLong(id));
         model.addAttribute("book", book);
         model.addAttribute("id", id);
-        model.addAttribute("appUrl", appURL + "/bookDetails/" + id);
+        model.addAttribute("bookDetailsURL", "/bookDetails/" + id);
         return "share-book/share-book";
     }
 
