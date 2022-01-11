@@ -13,19 +13,19 @@
 
     <form style="text-align: center;" th:action="@{addBook}" method="post" enctype="multipart/form-data">
         <div>
-            <label>Book Cover Photo</label>
-            <input type="file" name="filedata" required />
+            <label>Book Cover Photo (Optional)</label>
+            <input type="file" name="filedata" />
         </div>
         <br />
         <div>
-            <label>Book Name</label>
-            <input type="text" name="name">
+            <label>Book Name *</label>
+            <input type="text" name="name" required>
         </div>
 
         <br />
 
         <div>
-            <label>Writer Name</label>
+            <label>Author</label>
             <input type="text" name="writterName">
         </div>
 
@@ -45,7 +45,7 @@
 
         <div>
             <label>Number of books</label>
-            <input type="text" name="numberOfBooks">
+            <input type="number" required name="numberOfBooks">
         </div>
         <br />
 

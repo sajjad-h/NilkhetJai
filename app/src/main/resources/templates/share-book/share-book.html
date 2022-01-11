@@ -12,7 +12,7 @@
     <div th:replace="fragments/header :: header"></div>
 
     <div style="text-align: center;">
-        <form th:action="@{shareBook}" method="post">
+        <form hidden th:action="@{shareBook}" method="post">
             <div>
                 <label>Enter id</label>
                 <input type="text" name="id">
@@ -39,7 +39,7 @@
             </div>
             <br />
             <div>
-                <a class="btn btn-primary" target="_blank" th:href="${appUrl}">View book</a>
+                <a class="btn btn-primary" target="_blank" th:href="${bookDetailsURL}">View book</a>
             </div>
         </div>
 
