@@ -14,13 +14,28 @@
     <div style="text-align: center;" class="mt-5">
         <form th:action="@{/registration}" method="post">
             <div>
-                <label>Email</label>
-                <input type="email" name="email">
+                <label>First Name</label>
+                <input type="text" name="firstName" th:value="${firstName}">
             </div><br />
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lastName" th:value="${lastName}">
+            </div><br />
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" th:value="${email}">
+            </div>
+            <div class="text-danger" th:if="${emailError!=null}" th:text="${emailError}"></div>
+            <br />
             <div>
                 <label>Password</label>
                 <input type="password" name="password">
             </div><br />
+            <div>
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword">
+            </div><br />
+            <div class="text-danger" th:if="${confirmPasswordError!=null}" th:text="${confirmPasswordError}"></div>
             <div>
                 <input class="btn btn-primary" type="submit" value="Registration">
             </div>
