@@ -1,6 +1,5 @@
 package project.sw.NilkhetJai;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -50,6 +49,8 @@ public class LoginTest {
         assertEquals(true, result.getStatusCode().is3xxRedirection());
         String response = restTemplate.getForObject(mainURL, String.class);
         assertEquals(true, response.contains("Welcome to Nilkhet Jai Project"));
+        ;
+
     }
 
     private HttpHeaders generateHeader() {
