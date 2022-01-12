@@ -58,7 +58,8 @@ public class BookController {
      */
 
     @PostMapping("/addBook")
-    public String addBookPost(@RequestParam("filedata") MultipartFile multipartFile,
+    public String addBookPost(
+            // @RequestParam("filedata") MultipartFile multipartFile,
             @RequestParam(name = "name", required = true, defaultValue = "") String bookName,
             @RequestParam(name = "language", required = true, defaultValue = "") String language,
             @RequestParam(name = "type", required = true, defaultValue = "") String bookType,
@@ -79,10 +80,10 @@ public class BookController {
             books.setIsAvailable(false);
         }
 
-        byte[] bytes = multipartFile.getBytes();
-        String encodedFileData = Base64.getEncoder().encodeToString(bytes);
-        books.setFileType(multipartFile.getContentType());
-        books.setFileData(encodedFileData);
+        // byte[] bytes = multipartFile.getBytes();
+        // String encodedFileData = Base64.getEncoder().encodeToString(bytes);
+        // books.setFileType(multipartFile.getContentType());
+        // books.setFileData(encodedFileData);
         bookService.save(books);
 
         return "book/success";

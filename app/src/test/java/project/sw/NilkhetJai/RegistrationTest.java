@@ -1,6 +1,12 @@
 package project.sw.NilkhetJai;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.client.TestRestTemplate.HttpClientOption;
 import org.springframework.http.HttpEntity;
@@ -14,6 +20,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(Lifecycle.PER_CLASS)
+@TestMethodOrder(OrderAnnotation.class)
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class RegistrationTest {
 
     public String regAppURL = "http://localhost:8027/registration";
@@ -31,11 +40,12 @@ public class RegistrationTest {
         HttpHeaders httpFormHeaders = generateHeader();
 
         MultiValueMap<String, String> postValueMap = new LinkedMultiValueMap<>();
-        postValueMap.add("email", "munna.cse.ju@gmail.comsok");
+        postValueMap.add("email", "munna.cse.ju@gmail.comsokdfj");
         postValueMap.add("password", "munna");
         postValueMap.add("confirmPassword", "munna");
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(postValueMap, httpFormHeaders);
-        ResponseEntity<String> result = restTemplate.postForEntity(regAppURL, request,
+        ResponseEntity<String> result = restTemplate.postForEntity(regAppURL,
+                request,
                 String.class);
         assertThat(result.getStatusCode().equals(HttpStatus.PERMANENT_REDIRECT));
     }
