@@ -21,7 +21,7 @@ public class RequestedBook {
     private String language;
 
     /**
-     * Empty Constractor for book object
+     * Empty Constractor for requestedBook object
      */
 
     public RequestedBook() {
@@ -29,7 +29,7 @@ public class RequestedBook {
     }
 
     /**
-     * To getType from book object
+     * To getType from requestedBook object
      * 
      * @return
      */
@@ -38,7 +38,7 @@ public class RequestedBook {
     }
 
     /**
-     * To setType for book object
+     * To setType for requestedBook object
      * 
      * @param type
      */
@@ -48,7 +48,7 @@ public class RequestedBook {
     }
 
     /**
-     * To set book name for book object
+     * To set book name for requestedBook object
      * 
      * @return
      */
@@ -58,7 +58,7 @@ public class RequestedBook {
     }
 
     /**
-     * To get book name from book object
+     * To get book name from requestedBook object
      * 
      * @param name
      */
@@ -68,7 +68,7 @@ public class RequestedBook {
     }
 
     /**
-     * To get book author from book object
+     * To get book author from requestedBook object
      * 
      * @return
      */
@@ -78,7 +78,7 @@ public class RequestedBook {
     }
 
     /**
-     * To set Author for book
+     * To set Author for requestedBook
      * 
      * @param author
      */
@@ -88,7 +88,7 @@ public class RequestedBook {
     }
 
     /**
-     * To get Language from book
+     * To get Language from requestedBook
      * 
      * @return
      */
@@ -98,7 +98,7 @@ public class RequestedBook {
     }
 
     /**
-     * To set Language for book object
+     * To set Language for requestedBook object
      * 
      * @param language
      */
@@ -108,7 +108,7 @@ public class RequestedBook {
     }
 
     /**
-     * To get id form book object
+     * To get id form requestedBook object
      * 
      * @return
      */
@@ -118,7 +118,7 @@ public class RequestedBook {
     }
 
     /**
-     * To set id for book object
+     * To set id for requestedBook object
      * 
      * @param id
      */
