@@ -16,9 +16,14 @@
                 <span sec:authorize="true">
                     <a class="btn btn-outline-light" th:href="@{/addBook}">Add Book</a>
                 </span>
+
                 <span sec:authorize="isAuthenticated()">
-                    <a class="btn btn-outline-light" th:href="@{/makeAvailable}">Make Available</a>
+                    <a class="btn btn-outline-light" th:href="@{/addRequestedBook}">Request for Book</a>
                 </span>
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/showRequestedBooks}">Show Requested Books</a>
+                </span>
+
                 <span sec:authorize="isAuthenticated()">
                     <a class="btn btn-outline-light" th:href="@{/shareBook}">Share Book</a>
                 </span>

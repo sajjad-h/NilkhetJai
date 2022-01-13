@@ -23,6 +23,7 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
     @Value("${app.url}")
     private String appURL;
 
