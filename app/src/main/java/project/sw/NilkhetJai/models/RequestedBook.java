@@ -19,6 +19,7 @@ public class RequestedBook {
     private String name;
     private String author;
     private String language;
+    private Boolean isAvaileAble = false;
 
     /**
      * Empty Constractor for requestedBook object
@@ -126,5 +127,25 @@ public class RequestedBook {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * To get isAvailable form requestedBook object
+     * 
+     * @return
+     */
+
+    public Boolean getIsAvailable() {
+        return isAvaileAble;
+    }
+
+    /**
+     * To set isAvailable for requestedBook object
+     * 
+     * @param isAvailable
+     */
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvaileAble = isAvailable;
     }
 }

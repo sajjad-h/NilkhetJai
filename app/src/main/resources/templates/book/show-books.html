@@ -19,7 +19,6 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Author</th>
-                        <th>Make available</th>
                         <th>View Details</th>
                         <th>Share</th>
                     </tr>
@@ -30,12 +29,6 @@
                             <td th:text=${iterationStatus.count}></td>
                             <td th:text=${book.name}></td>
                             <td th:text=${book.author}></td>
-                            <td>
-                                <form th:action="@{makeAvailable}" method="post">
-                                    <input hidden type="text" name="id" th:value="${book.id}">
-                                    <input class="btn btn-primary" type="submit" value="Make available">
-                                </form>
-                            </td>
                             <td>
                                 <a class="btn btn-primary" th:href="'/bookDetails/'+${book.id}">View
                                     Details</a>
