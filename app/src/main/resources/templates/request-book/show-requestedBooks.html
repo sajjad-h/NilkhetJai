@@ -11,25 +11,27 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
 
-    <div class="container-fluid">
-        <table class="table table-striped" border="1">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Author</th>
-                </tr>
-            </thead>
-            <tbody>
-                <th:block th:each="book,iterationStatus : ${requestedBooks}">
+    <div class="container bg-light mt-5">
+        <div class="card-body">
+            <table class="table table-striped" border="1">
+                <thead>
                     <tr>
-                        <td th:text=${iterationStatus.count}></td>
-                        <td th:text=${book.name}></td>
-                        <td th:text=${book.author}></td>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Author</th>
                     </tr>
-                </th:block>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <th:block th:each="book,iterationStatus : ${requestedBooks}">
+                        <tr>
+                            <td th:text=${iterationStatus.count}></td>
+                            <td th:text=${book.name}></td>
+                            <td th:text=${book.author}></td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>

@@ -12,26 +12,32 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
 
-    <div style="text-align: center;">
-        <form th:action="@{/login}" method="post" class="mt-5">
-            <div>
-                <label>Enter email</label>
-                <input type="email" id="username" name="username">
-            </div>
-            <br />
-            <div>
-                <label>Enter password</label>
-                <input type="password" id="password" name="password">
-            </div>
-            <br />
-            <div>
-                <input class="btn btn-primary" type="submit" value="Login">
-            </div>
-        </form>
+    <div class="container">
+        <div class="card bg-light mt-5">
+            <div class="card-body">
+                <div style="text-align: center;">
+                    <form th:action="@{/login}" method="post" class="mt-5">
+                        <div>
+                            <label>Enter email</label>
+                            <input type="email" id="username" name="username">
+                        </div>
+                        <br />
+                        <div>
+                            <label>Enter password</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <br />
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </div>
+                    </form>
 
-        <br />
-        <div>
-            <a class="btn btn-primary" th:href="@{/registration}">Registration</a>
+                    <br />
+                    <div>
+                        <a class="btn btn-primary" th:href="@{/registration}">Registration</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

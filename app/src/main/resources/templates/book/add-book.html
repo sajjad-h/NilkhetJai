@@ -11,48 +11,50 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
 
-    <form style="text-align: center;" th:action="@{addBook}" method="post" enctype="multipart/form-data">
-        <div hidden>
-            <label>Book Cover Photo (Optional)</label>
-            <input type="file" name="filedata" />
-        </div>
-        <br />
-        <div>
-            <label>Book Name *</label>
-            <input type="text" name="name" required>
-        </div>
+    <div class="card container bg-light p-2 mt-5">
+        <form style="text-align: center;" th:action="@{addBook}" method="post" enctype="multipart/form-data">
+            <div hidden>
+                <label>Book Cover Photo (Optional)</label>
+                <input type="file" name="filedata" />
+            </div>
+            <br />
+            <div>
+                <label>Book Name *</label>
+                <input type="text" name="name" required>
+            </div>
 
-        <br />
+            <br />
 
-        <div>
-            <label>Author</label>
-            <input type="text" name="writterName">
-        </div>
+            <div>
+                <label>Author</label>
+                <input type="text" name="writterName">
+            </div>
 
-        <br />
-        <div>
-            <label>Language</label>
-            <input type="text" name="language">
-        </div>
+            <br />
+            <div>
+                <label>Language</label>
+                <input type="text" name="language">
+            </div>
 
-        <br />
+            <br />
 
-        <div>
-            <label>Type</label>
-            <input type="text" name="type">
-        </div>
-        <br />
+            <div>
+                <label>Type</label>
+                <input type="text" name="type">
+            </div>
+            <br />
 
-        <div>
-            <label>Number of books</label>
-            <input type="number" required name="numberOfBooks">
-        </div>
-        <br />
+            <div>
+                <label>Number of books</label>
+                <input type="number" required name="numberOfBooks">
+            </div>
+            <br />
 
-        <div>
-            <input class="btn btn-primary" type="submit">
-        </div>
-    </form>
+            <div>
+                <input class="btn btn-primary" type="submit">
+            </div>
+        </form>
+    </div>
     <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
 
 </body>
