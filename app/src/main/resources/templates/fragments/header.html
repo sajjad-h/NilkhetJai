@@ -13,10 +13,12 @@
                 </span>
             </div>
             <div class="col-md-9 justify-content-end" style="text-align: right;">
-                <span sec:authorize="true">
+                <span sec:authorize="isAuthenticated()">
                     <a class="btn btn-outline-light" th:href="@{/addBook}">Add Book</a>
                 </span>
-
+                <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/showBooks}">Show Books</a>
+                </span>
                 <span sec:authorize="isAuthenticated()">
                     <a class="btn btn-outline-light" th:href="@{/addRequestedBook}">Request for Book</a>
                 </span>
@@ -25,10 +27,10 @@
                 </span>
 
                 <span sec:authorize="isAuthenticated()">
-                    <a class="btn btn-outline-light" th:href="@{/shareBook}">Share Book</a>
+                    <a class="btn btn-outline-light" th:href="@{/logout}">Logout</a>
                 </span>
-                <span>
-                    <a class="btn btn-outline-light" th:href="@{/showBooks}">Show Books</a>
+                <span sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/login}">Login</a>
                 </span>
             </div>
         </div>

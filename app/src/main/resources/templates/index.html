@@ -3,25 +3,37 @@
 <body style="text-align: center;">
 	<div th:replace="fragments/header :: header"></div>
 
-	<h1>Welcome to Nilkhet Jai Project</h1>
-	<h1 th:text="${name}" class="text-info"></h1>
+	<div class="card container bg-light mt-5">
+		<div class="card-body">
+			<h1>Welcome to Nilkhet Jai Project</h1>
+			<h1 th:text="${name}" class="text-info"></h1>
+			<br />
+			<br />
 
-	<br />
-	<div>
-		<a class="btn btn-primary" th:href="@{/addBook}">Add Book</a>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/addBook}">Add Book</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/showBooks}">Show Books</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/addRequestedBook}">Request for Book</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/showRequestedBooks}">Show Requested Books</a>
+			</span>
+
+			<br />
+			<br />
+			<br />
+
+			<div>
+				<a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+			</div>
+
+		</div>
 	</div>
-	<br />
-	<div>
-		<a class="btn btn-primary" th:href="@{/makeAvailable}">Make Available</a>
-	</div>
-	<br />
-	<div>
-		<a class="btn btn-primary" th:href="@{/shareBook}">Share Book</a>
-	</div>
-	<br />
-	<div>
-		<a class="btn btn-danger" th:href="@{/logout}">Logout</a>
-	</div>
+
 	<div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
 
 </body>
