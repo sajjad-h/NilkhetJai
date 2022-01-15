@@ -20,6 +20,10 @@
                     <a class="btn btn-outline-light" th:href="@{/makeAvailable}">Make Available</a>
                 </span>
                 <span sec:authorize="isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/addPost}">Add Blog Post</a>
+                </span>
+
+                <span sec:authorize="isAuthenticated()">
                     <a class="btn btn-outline-light" th:href="@{/shareBook}">Share Book</a>
                 </span>
             </div>

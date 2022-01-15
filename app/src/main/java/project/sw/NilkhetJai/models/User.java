@@ -1,19 +1,17 @@
 package project.sw.NilkhetJai.models;
 
-import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
 import javax.persistence.GenerationType;
-
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "users")
@@ -37,6 +35,12 @@ public class User {
     @NotNull
     private Boolean isActive = false;
 
+    @OneToMany(mappedBy="user")
+    private List<Post> posts;
+
+    /**
+     * Empty constractor for user object
+     */
     public User() {
     }
 
