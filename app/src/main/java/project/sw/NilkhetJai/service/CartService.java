@@ -3,30 +3,30 @@ package project.sw.NilkhetJai.service;
 import java.util.List;
 import java.util.Optional;
 
-import project.sw.NilkhetJai.models.Book;
+import project.sw.NilkhetJai.models.Cart;
 
-public interface BookService {
+public interface CartService {
     /**
      * To save book object in book table
      * 
      * @param book
      */
-    void save(Book book);
+    void save(Cart cart);
 
     /**
      * To find by id form book table
      * 
-     * @param bookId
+     * @param id
      * @return
      */
 
-    Optional<Book> findById(Long bookId);
+    Optional<Cart> findById(Long id);
 
     /**
      * To find all object from book table
      * 
      * @return
      */
-    List<Book> findAll();
+    List<Cart> findAll();
 
 }

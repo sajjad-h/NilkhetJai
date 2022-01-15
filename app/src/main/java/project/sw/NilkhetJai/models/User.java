@@ -1,10 +1,13 @@
 package project.sw.NilkhetJai.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -32,10 +35,15 @@ public class User {
     @NotNull
     private Boolean isActive = false;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", referencedColumnName = "cart_id")
+    private Cart cart;
+
     /**
      * Empty constractor for user object
      */
     public User() {
+        this.cart = new Cart();
     }
 
     /**
@@ -165,6 +173,14 @@ public class User {
      */
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
 }

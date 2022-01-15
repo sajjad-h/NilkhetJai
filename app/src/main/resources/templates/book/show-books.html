@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show Books</title>
+    <script>
+        
+    </script>
 </head>
 
 <body>
@@ -21,6 +24,7 @@
                     <th>Make available</th>
                     <th>View Details</th>
                     <th>Share</th>
+                    <th>Cart Option</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +49,12 @@
                                 <input class="btn btn-primary" type="submit" value="shareBook">
                             </form>
                         </td>
-
+                        <td>
+                            <form th:action="@{addToCart}" method="post">
+                                <input hidden type="text" name="book_id" th:value="${book.id}">
+                                <input class="btn btn-primary" type="submit" value="Add to Cart">
+                            </form>
+                        </td>
                     </tr>
                 </th:block>
             </tbody>
