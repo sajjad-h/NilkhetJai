@@ -12,33 +12,49 @@
     <div th:replace="fragments/header :: header"></div>
 
     <div class="container">
-        <div class="card mt-5 bg-light">
+        <div class="card mt-5">
             <div class="card-body">
-                <form style="text-align: center;" th:action="@{addRequestedBook}" method="post">
+                <form class="m-auto w-50" style="text-align: center;" th:action="@{addRequestedBook}" method="post">
                     <br />
-                    <div>
-                        <label>Book Name *</label>
-                        <input type="text" name="name" required>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Book Name: *</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
                     </div>
 
                     <br />
 
-                    <div>
-                        <label>Author</label>
-                        <input type="text" name="writterName">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Author Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="writterName">
+                        </div>
                     </div>
 
                     <br />
-                    <div>
-                        <label>Language</label>
-                        <input type="text" name="language">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter Language:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="language">
+                        </div>
                     </div>
 
                     <br />
 
-                    <div>
-                        <label>Type</label>
-                        <input type="text" name="type">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter Type:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" name="type">
+                        </div>
                     </div>
                     <br />
 

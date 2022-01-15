@@ -12,31 +12,52 @@
     <div th:replace="fragments/header :: header"></div>
 
     <div class="container">
-        <div class="card bg-light mt-5">
+        <div class="card mt-5">
             <div class="card-body">
                 <div style="text-align: center;" class="mt-5">
-                    <form th:action="@{/registration}" method="post">
-                        <div>
-                            <label>First Name</label>
-                            <input type="text" name="firstName" th:value="${firstName}">
-                        </div><br />
-                        <div>
-                            <label>Last Name</label>
-                            <input type="text" name="lastName" th:value="${lastName}">
-                        </div><br />
-                        <div>
-                            <label>Email</label>
-                            <input type="email" name="email" th:value="${email}">
+                    <form class="w-50 m-auto" th:action="@{/registration}" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter First Name:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="firstName" th:value="${firstName}">
+                            </div>
                         </div>
-                        <div class="text-danger" th:if="${emailError!=null}" th:text="${emailError}"></div>
                         <br />
-                        <div>
-                            <label>Password</label>
-                            <input type="password" name="password">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Last Name: </label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="lastName" th:value="${lastName}">
+                            </div>
                         </div><br />
-                        <div>
-                            <label>Confirm Password</label>
-                            <input type="password" name="confirmPassword">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="email" name="email" th:value="${email}">
+                            </div>
+                        </div>
+                        <div class="text-danger text-center" th:if="${emailError!=null}" th:text="${emailError}"></div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Enter Password:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="password" name="password">
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Confirm Password:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input required class="form-control" type="password" name="confirmPassword">
+                            </div>
                         </div><br />
                         <div class="text-danger" th:if="${confirmPasswordError!=null}"
                             th:text="${confirmPasswordError}"></div>

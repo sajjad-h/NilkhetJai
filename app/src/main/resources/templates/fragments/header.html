@@ -32,6 +32,9 @@
                 <span sec:authorize="!isAuthenticated()">
                     <a class="btn btn-outline-light" th:href="@{/login}">Login</a>
                 </span>
+                <span sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-outline-light" th:href="@{/registration}">Registration</a>
+                </span>
             </div>
         </div>
 

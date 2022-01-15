@@ -167,6 +167,7 @@ public class BookController {
         model.addAttribute("bookName", "Book's Name: " + books.get().getName());
         model.addAttribute("writerName", "Writer's Name: " + books.get().getAuthor());
         model.addAttribute("language", "Language: " + books.get().getLanguage());
+        model.addAttribute("id", books.get().getId());
         if (books.get().getIsAvailable()) {
             model.addAttribute("available", "The book is available in Nilkhet");
         }
