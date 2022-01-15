@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers( "/css/**", "/image/**", "/genrateQRCode/**", "/registration", "/login", "/forgot-password", "/reset-password", "/verify-pin", "/payconfirmation", "/payaamarpay", "/paymentstatus", "/nagad/payment-success", "/ekshop/ipn", "/ekshop/payment-success", "/ekshop/payment-cancel", "/ekshop/payment-fail") // here we will include pages which can be viewed without login
+            .antMatchers( "/css/**","/api/**", "/image/**", "/registration", "/login") // here we will include pages which can be viewed without login
             .permitAll()
             .anyRequest()
             .authenticated()
