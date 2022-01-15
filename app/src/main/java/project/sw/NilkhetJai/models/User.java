@@ -1,10 +1,13 @@
 package project.sw.NilkhetJai.models;
 
+import java.util.List;
 import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -34,6 +37,9 @@ public class User {
 
     @NotNull
     private Boolean isActive = false;
+
+    @OneToMany(mappedBy="user")
+    private List<Post> posts;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id", referencedColumnName = "cart_id")
