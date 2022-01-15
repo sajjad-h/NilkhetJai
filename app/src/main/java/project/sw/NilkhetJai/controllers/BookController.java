@@ -14,13 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.sw.NilkhetJai.models.Book;
+import project.sw.NilkhetJai.models.RequestedBook;
 import project.sw.NilkhetJai.service.BookService;
+import project.sw.NilkhetJai.service.RequestedBookService;
 
 @Controller
 public class BookController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private RequestedBookService requestedBookService;
+
     @Value("${app.url}")
     private String appURL;
 
@@ -109,13 +115,10 @@ public class BookController {
     @PostMapping("/makeAvailable")
     public String makeAvailablePost(@RequestParam(name = "id", required = true, defaultValue = "") String id,
             Model model) {
-        Optional<Book> books = bookService.findById(Long.parseLong(id));
-        if (books.get().getIsAvailable()) {
-            model.addAttribute("message", "Your book is available, please order this book");
-        } else {
-            model.addAttribute("message", "Sorry, the books is not available, please try again later.");
-        }
-        return "make-available/result";
+        Optional<RequestedBook> requestedBook = requestedBookService.findById(Long.parseLong(id));
+        requestedBook.get().setIsAvailable(true);
+        requestedBookService.save(requestedBook.get());
+        return "redirect:showRequestedBooks/";
     }
 
     /**
@@ -124,12 +127,11 @@ public class BookController {
      * @param model
      * @return
      */
-    @GetMapping("/shareBook")
-    public String shareBook(Model model) {
-        model.addAttribute("appUrl", appURL + "/bookDetails/" + 1);
-        return "share-book/share-book";
-
-    }
+    // @GetMapping("/shareBook")
+    // public String shareBook(Model model) {
+    // model.addAttribute("appUrl", appURL + "/bookDetails/" + 1);
+    // return "share-book/share-book";
+    // }
 
     /**
      * * shareBookPost is a Post Mapping Function for requesting to share a book by
@@ -163,6 +165,7 @@ public class BookController {
         model.addAttribute("bookName", "Book's Name: " + books.get().getName());
         model.addAttribute("writerName", "Writer's Name: " + books.get().getAuthor());
         model.addAttribute("language", "Language: " + books.get().getLanguage());
+        model.addAttribute("id", books.get().getId());
         if (books.get().getIsAvailable()) {
             model.addAttribute("available", "The book is available in Nilkhet");
         }

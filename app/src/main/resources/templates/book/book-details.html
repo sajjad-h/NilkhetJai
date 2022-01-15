@@ -22,11 +22,21 @@
     <body>
         <div th:replace="fragments/header :: header"></div>
 
-        <div style="text-align: center;" class="h3">
-            <div th:text="${bookName}"></div><br />
-            <div th:text="${writerName}"></div><br />
-            <div th:text="${language}"></div><br />
-            <div th:text="${available}"></div><br />
+        <div class="container text-center">
+            <div class="card mt-5">
+                <div style="text-align: center;" class="h3">
+                    <br />
+                    <h2 class="text-primary" th:text="${bookName}"></h2><br />
+                    <div th:text="${writerName}"></div><br />
+                    <div th:text="${language}"></div><br />
+                    <div th:text="${available}"></div><br />
+                </div>
+                <form th:action="@{shareBook}" method="post">
+                    <input hidden type="text" name="id" th:value="${id}">
+                    <input class="btn btn-primary" type="submit" value="shareBook">
+                </form>
+                <br />
+            </div>
         </div>
         <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
 
