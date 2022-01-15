@@ -3,7 +3,6 @@ package project.sw.NilkhetJai;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -38,7 +37,7 @@ public class RegistrationTest {
     }
 
     @Test
-    public void RegistrationTest() {
+    public void testRegistration() {
         HttpHeaders httpFormHeaders = generateHeader();
 
         MultiValueMap<String, String> postValueMap = new LinkedMultiValueMap<>();

@@ -1,7 +1,6 @@
 package project.sw.NilkhetJai.controllers;
 
 import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import project.sw.NilkhetJai.models.Book;
 import project.sw.NilkhetJai.models.RequestedBook;
@@ -65,7 +63,6 @@ public class BookController {
 
     @PostMapping("/addBook")
     public String addBookPost(
-            // @RequestParam("filedata") MultipartFile multipartFile,
             @RequestParam(name = "name", required = true, defaultValue = "") String bookName,
             @RequestParam(name = "language", required = true, defaultValue = "") String language,
             @RequestParam(name = "type", required = true, defaultValue = "") String bookType,
@@ -91,6 +88,7 @@ public class BookController {
         // books.setFileType(multipartFile.getContentType());
         // books.setFileData(encodedFileData);
         bookService.save(books);
+
 
         return "book/success";
     }
