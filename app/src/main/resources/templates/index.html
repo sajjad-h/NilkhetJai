@@ -20,6 +20,9 @@
 				<a class="btn btn-outline-primary" th:href="@{/addRequestedBook}">Request for Book</a>
 			</span>
 			<span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/addPost}">Add Blog Post</a>
+			</span>
+			<span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/showRequestedBooks}">Show Requested Books</a>
 			</span>
 

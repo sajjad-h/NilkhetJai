@@ -1,6 +1,7 @@
 package project.sw.NilkhetJai.controllers;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,7 +83,6 @@ public class BookController {
             books.setIsAvailable(false);
         }
 
-        booksService.save(books);
         // byte[] bytes = multipartFile.getBytes();
         // String encodedFileData = Base64.getEncoder().encodeToString(bytes);
         // books.setFileType(multipartFile.getContentType());
