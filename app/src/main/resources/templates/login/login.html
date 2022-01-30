@@ -16,6 +16,7 @@
         <div class="card mt-5">
             <div class="card-body">
                 <div style="text-align: center;">
+                    <span style="color: red; font-size: 20px; font-weight: bold;" th:if="${param.error}">Wrong Email/Password!</span>
                     <form th:action="@{/login}" method="post" class="mt-5">
                         <div class="row w-50 m-auto">
                             <div class="col-md-6">
