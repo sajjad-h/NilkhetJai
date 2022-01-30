@@ -38,7 +38,7 @@ public class User {
     @NotNull
     private Boolean isActive = false;
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -181,9 +181,21 @@ public class User {
         this.isActive = isActive;
     }
 
+    /**
+     * To get Cart
+     * 
+     * @return
+     */
+
     public Cart getCart() {
         return cart;
     }
+
+    /**
+     * To set cart
+     * 
+     * @param cart
+     */
 
     public void setCart(Cart cart) {
         this.cart = cart;

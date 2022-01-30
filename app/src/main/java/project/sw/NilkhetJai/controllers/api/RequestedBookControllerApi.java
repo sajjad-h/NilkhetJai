@@ -58,7 +58,7 @@ public class RequestedBookControllerApi {
      */
 
     @PostMapping("/addRequestedBook")
-    public HashMap<String, Object> addRequestedBookPost(@RequestBody String BookJson)
+    public HashMap<String, Object> addRequestedBookPostMapping(@RequestBody String BookJson)
             throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -108,7 +108,7 @@ public class RequestedBookControllerApi {
      */
 
     @GetMapping("/showRequestedBooks")
-    public List<RequestedBook> showAllRequestedBooks(Model model) {
+    public List<RequestedBook> showAllRequestedBooksGetMapping(Model model) {
         List<RequestedBook> requestedBooks = requestedBookService.findAll();
         model.addAttribute("requestedBooks", requestedBooks);
         return requestedBooks;

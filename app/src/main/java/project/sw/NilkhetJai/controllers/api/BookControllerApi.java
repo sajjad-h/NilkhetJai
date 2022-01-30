@@ -118,7 +118,7 @@ public class BookControllerApi {
      */
 
     @PostMapping("/addBook")
-    public HashMap<String, Object> addBookPost(@RequestBody String BookJson)
+    public HashMap<String, Object> addBookPostMapping(@RequestBody String BookJson)
 
             throws IOException {
 
@@ -197,7 +197,7 @@ public class BookControllerApi {
      */
 
     @GetMapping("bookDetails/{id}")
-    public Book bookDetailsGet(@PathVariable Long id) {
+    public Book bookDetailsGetMapping(@PathVariable Long id) {
         Optional<Book> books = bookService.findById(id);
         return books.get();
     }

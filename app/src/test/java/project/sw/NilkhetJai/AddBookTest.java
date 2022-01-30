@@ -60,7 +60,7 @@ public class AddBookTest {
         MultiValueMap<String, String> postValueMap = new LinkedMultiValueMap<>();
         postValueMap.add("name", "Dummy name");
         postValueMap.add("writterName", "Writer Name");
-        postValueMap.add("type", "Hello type");
+        postValueMap.add("type", "Hello");
         postValueMap.add("numberOfBooks", "12");
         postValueMap.add("language", "Bangla");
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(postValueMap, httpHeaders);
