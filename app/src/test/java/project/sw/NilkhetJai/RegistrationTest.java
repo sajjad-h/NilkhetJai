@@ -41,7 +41,7 @@ public class RegistrationTest {
         HttpHeaders httpFormHeaders = generateHeader();
 
         MultiValueMap<String, String> postValueMap = new LinkedMultiValueMap<>();
-        postValueMap.add("email", "munna.cse.ju@gmail.comsok");
+        postValueMap.add("email", "munna.cse.ju@gmail.com");
         postValueMap.add("password", "munna");
         postValueMap.add("confirmPassword", "munna");
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(postValueMap, httpFormHeaders);

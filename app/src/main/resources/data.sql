@@ -49,7 +49,8 @@ INSERT INTO `cart_books` (`cart_id`, `book_id`) VALUES
 --
 
 INSERT INTO `users` (`user_id`, `email`, `first_name`, `is_active`, `last_name`, `password`, `cart_id`) VALUES
-(1, 'sajjad@ab', 'Sajjad', b'0', 'Hossain', '$2a$10$91iODOzQ0hd05SNYTQp9ZuzwHtaAqyGCCFqVhiBFZH9mxwBkenyOS', 1);
+(1, 'sajjad@ab', 'Sajjad', b'0', 'Hossain', '$2a$10$91iODOzQ0hd05SNYTQp9ZuzwHtaAqyGCCFqVhiBFZH9mxwBkenyOS', 1),
+(2, 'munna.cse.ju@gmail.com', 'Md. Motiur Rahman', b'0', 'Munna', '$2a$10$GcKtu6mxAnzcOYBWrWPNruu2l5oR.eevR2LkhBbyg2wFAW8igZi1K', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
