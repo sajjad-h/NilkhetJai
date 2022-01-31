@@ -49,7 +49,7 @@ public class BookController {
     }
 
     /**
-     * showAllBooks is a GetMapping function which shows all books
+     * displayAllBooks is a GetMapping function which shows all books
      * 
      * @param model
      * @return
