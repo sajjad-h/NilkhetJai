@@ -26,7 +26,6 @@ public class RetrofitClient {
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
 
-
     private RetrofitClient () {
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -34,6 +33,11 @@ public class RetrofitClient {
                 .client(getUnsafeOkHttpClient())
                 .build();
     }
+
+    /**
+     * To get instance
+     * @return
+     */
 
     public static synchronized RetrofitClient getInstance() {
         if (mInstance == null) {
@@ -46,6 +50,10 @@ public class RetrofitClient {
         return retrofit.create(API.class);
     }
 
+    /**
+     *
+     * @return
+     */
     private static OkHttpClient getUnsafeOkHttpClient() {
         try {
             // Create a trust manager that does not validate certificate chains
