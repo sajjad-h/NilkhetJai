@@ -1,0 +1,69 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+html {
+    color: #ffffff;
+}
+
+.drop-shadow {
+    float: left;
+    position: relative;
+    margin: 10px 3px 0 10px !important;
+    margin: 10px 3px 0 5px;
+    background: transparent url(images/drop_shadow.png) bottom right no-repeat !important;
+    background: transparent url(images/drop_shadow_ie.gif) bottom right no-repeat;
+}
+
+.drop-shadow img {
+    padding: 4px;
+    display: block;
+    position: relative;
+    margin: -6px 6px 6px -6px;
+    background-color: #ffffff;
+    border: 1px solid #a9a9a9;
+}
+
+.drop-shadow p {
+    right: 11px;
+    bottom: 0px;
+    color: #eeeeee;
+    padding: 5px 10px;
+    position: absolute;
+    background-color: #2e333b;
+    border-top: 1px solid #111111;
+}
+
+hr {
+    visibility: hidden;
+    height: 1px;
+    clear: both;
+}
+
+#content-wrapper {
+    clear: both;
+    width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#content {
+    float: left;
+    padding: 20px 0;
+}
+
+#content p {
+    float: left;
+    margin: 10px 25px;
+}
+
+#content a.drop-shadow p {
+    margin: 0;
+    bottom: 10px;
+}
+
+a.drop-shadow {
+    border-bottom-width: 0;
+    font-weight: normal;
+}

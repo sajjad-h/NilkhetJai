@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Books</title>
+    <link rel="stylesheet" type="text/css" href="css/displayBooks/displayBooks.css">
+    <script>
+    </script>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+
+    <div id="content-wrapper">
+        <div id="content">
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/the_mephisto_club.jpg" width="100" height="150" alt="The Mephisto Club by Tess Gerritsen" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/dark_celebration.jpg" width="100" height="150" alt="Dark Celebration by Christine Freehan" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/ricochet.jpg" width="100" height="150" alt="Ricochet by Sandra Brown" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/echo_park.jpg" width="100" height="150" alt="Echo Park by Michael Connelly" class="captionated" /></a>
+            </p>
+            <hr />
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/the_world_is_flat.jpg" width="100" height="150" alt="The World is Flat by Thomas L. Friedman" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/act_of_treason.jpg" width="100" height="150" alt="Act of Treason by Vince Flynn" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/rich_dad_poor_dad.jpg" width="100" height="150" alt="Rich Dad, Poor Dad" class="captionated" /></a>
+            </p>
+            <p>
+                <a href="#" class="drop-shadow"><img src="images/freakonomics.jpg" width="100" height="150" alt="Freakonomics" class="captionated" /></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

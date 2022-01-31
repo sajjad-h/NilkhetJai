@@ -1,43 +1,45 @@
 <html>
 
 <body style="text-align: center;">
-	<div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/header :: header"></div>
 
-	<div class="card container mt-5">
-		<div class="card-body">
-			<h1>Welcome to Nilkhet Jai Project</h1>
-			<h1 th:text="${name}" class="text-info"></h1>
-			<br />
-			<br />
+    <div class="card container mt-5">
+        <div class="card-body">
+            <h1>Welcome to Nilkhet Jai Project</h1>
+            <h1 th:text="${name}" class="text-info"></h1>
+            <br />
+            <br />
 
-			<span sec:authorize="isAuthenticated()">
+            <span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/addBook}">Add Book</a>
 			</span>
-			<span sec:authorize="isAuthenticated()">
+            <span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/showBooks}">Show Books</a>
 			</span>
-			<span sec:authorize="isAuthenticated()">
+            <span sec:authorize="isAuthenticated()">
+				<a class="btn btn-outline-primary" th:href="@{/displayBooks}">Display Books</a>
+			</span>
+            <span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/addRequestedBook}">Request for Book</a>
 			</span>
-			<span sec:authorize="isAuthenticated()">
+            <span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/addPost}">Add Blog Post</a>
 			</span>
-			<span sec:authorize="isAuthenticated()">
+            <span sec:authorize="isAuthenticated()">
 				<a class="btn btn-outline-primary" th:href="@{/showRequestedBooks}">Show Requested Books</a>
 			</span>
+            <br />
+            <br />
+            <br />
 
-			<br />
-			<br />
-			<br />
+            <div>
+                <a class="btn btn-danger" th:href="@{/logout}">Logout</a>
+            </div>
 
-			<div>
-				<a class="btn btn-danger" th:href="@{/logout}">Logout</a>
-			</div>
+        </div>
+    </div>
 
-		</div>
-	</div>
-
-	<div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
+    <div class="btn btn-primary" th:replace="fragments/footer :: footer"></div>
 
 </body>
 

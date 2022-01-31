@@ -49,6 +49,19 @@ public class BookController {
     }
 
     /**
+     * showAllBooks is a GetMapping function which shows all books
+     * 
+     * @param model
+     * @return
+     */
+    @GetMapping("/displayBooks")
+    public String displayAllBooks(Model model) {
+        List<Book> books = bookService.findAll();
+        model.addAttribute("books", books);
+        return "book/display-books";
+    }
+
+    /**
      * PostMapping is a Post Mapping Function for book add request
      * 
      * @param multipartFile
