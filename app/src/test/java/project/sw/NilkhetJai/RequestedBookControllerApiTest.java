@@ -38,6 +38,7 @@ public class RequestedBookControllerApiTest {
         MultiValueMap<String, String> postValueMap = new LinkedMultiValueMap<>();
         postValueMap.add("username", "munna.cse.ju@gmail.com");
         postValueMap.add("password", "munna");
+
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(postValueMap, httpFormHeaders);
         ResponseEntity<String> result = restTemplate.postForEntity(logAppURL,
                 request,
