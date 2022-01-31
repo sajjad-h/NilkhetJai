@@ -38,12 +38,15 @@ public class User {
     @NotNull
     private Boolean isActive = false;
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id", referencedColumnName = "cart_id")
     private Cart cart;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     /**
      * Empty constractor for user object
@@ -187,6 +190,14 @@ public class User {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
 }

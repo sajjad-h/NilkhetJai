@@ -24,6 +24,7 @@
                         <th>View Details</th>
                         <th>Share</th>
                         <th>Cart Option</th>
+                        <th>Order Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,12 @@
                               <form th:action="@{addToCart}" method="post">
                                 <input hidden type="text" name="book_id" th:value="${book.id}">
                                 <input class="btn btn-primary" type="submit" value="Add to Cart">
+                              </form>
+                            </td>
+                            <td>
+                              <form th:action="@{orderBook}" method="post">
+                                <input hidden type="text" name="book_id" th:value="${book.id}">
+                                <input class="btn btn-primary" type="submit" value="Order Book">
                               </form>
                             </td>
                         </tr>
